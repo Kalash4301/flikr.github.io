@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+	
+
+</head>
+<body>
+
+            
+		<nav class="navbar navbar-default" >
+		  
+		    
+		   <span  class="dropdown" style="padding-left: 10rem; padding-top: 1rem; float: left;">
+			  <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">Choose
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+			    <li ><a href="index.html">NSE</a></li>
+			    <li><a href="bse.html">BSE</a></li>
+			   
+			  </ul>
+			</span>
+
+			<span class="dropdown" style="padding-left: 10rem; padding-top: 1rem; float: right; ">
+			  <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">RELIANCE
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+			    <li><a href="ashok.html">ASHOKLEY</a></li>
+			    <li><a href="cipla.html">CIPLA</a></li>
+			     <li ><a href="echer.html">ECHERMOT</a></li>
+			      <li  class="active"><a href="reli.html">RELIANCE</a></li>
+			       <li ><a href="tata.html">TATASTEEL</a></li>
+			        
+			   
+			  </ul>
+			</span>
+		    
+		  
+		</nav>
+                <h1 style="color: blue;text-align: center; " >CHARTS</h1>
+               <div class="container-fluid" style="background-color: blue;
+                  ">
+               	    <div class="row">
+               	    	<p style="color: white;text-align: center;"> click on buttons to see graph.</p>
+					    <div class=" col-lg-12 col-sm-12" >
+                         <div class=" col-lg-6 col-sm-6" style="text-align: center">
+                         	                <button  class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">ALL</button>
+
+											<!-- Modal -->
+											<div id="myModal1" class="modal fade" role="dialog" >
+												
+											  <div class="modal-dialog modal-lg">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">All</h4>
+											      </div>
+											      <div class="modal-body">
+											        <canvas id="myChart" width="80" height="80"></canvas>
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+
+											  </div>
+											</div>
+					    	
+                         </div>
+
+                         <div class=" col-lg-6 col-sm-6" style="text-align: center">
+                         	                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#openModel">year</button>
+
+											<!-- Modal -->
+											<div  id="openModel" class="modal fade" role="dialog" >
+												
+											  <div class="modal-dialog modal-lg">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">YEAR</h4>
+											      </div>
+											      <div class="modal-body">
+											        <canvas id="myyChart" width="80" height="80"></canvas>
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+
+											  </div>
+											</div>
+					    	
+                         </div>
+
+                        </div>
+                        <br>
+                         </div>
+
+
+                       </div>
+
+                         <h3>OVERVIEW</h3>
+                		 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+                    <div class="row">
+					    <div class=" col-lg-6" >
+					    	<div><span style="float: right;" id="open"></span><span style="float: left">Open</span></div>
+					    	<br>
+					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+					    	 <br>
+					    	 <div><span style="float: right;" id="close"></span><span style="float: left">Previous</span></div>
+					    	 <br>
+					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+					    	 <br>
+					    	<div><span style="float: right;" id="low"></span><span style="float: left">Day Low</span></div>
+					    	<br>
+					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+					    </div>
+					    <div class=" col-lg-6" >
+
+
+					    	<div><span style="float: right;" id="high"></span><span style="float: left">Day High</span></div>
+					    	<br>
+					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+					    	 <br>
+					    	 <div><span style="float: right;"  id="min"></span><span style="float: left">52 week Low</span></div>
+					    	 <br>
+					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+					    	 <br>
+					    	<div><span style="float: right;"  id="max"></span><span style="float: left">52 week High</span></div>
+					    	<br>
+					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+					    </div>
+					    </div>
+					
+				
+
+
+
+
+
+
+
+                     
+                 
+
+
+        
+
+
+<script type="text/javascript">
+
+		
+			const xlables=[];
+	 const ylables=[];
+
+	 const x=[];
+	 const y=[];
+	  
+	         chartit();
+	         chartt();
+	        
+
+             async function chartit(){
+	         await getdata();
+			var ctx = document.getElementById('myChart').getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+			    type: 'line',
+			    data: {
+			        labels:xlables,
+			        datasets: [{
+			            label: 'Line ',
+			            data: ylables,
+			            backgroundColor: 
+			                'rgba(255, 99, 132, 0.2)',
+			            borderColor: 
+			                'rgba(255, 99, 132, 1)',
+			            fill:false,
+			            borderWidth: 1
+			        },{
+			        	 label: 'bar ',
+			            data: ylables,
+			            backgroundColor: 
+			                'rgba(255, 99, 132, 0.2)',
+			            borderColor: 
+			                'rgba(54, 162, 235, 0.2)',
+			            fill:false,
+			            borderWidth: 1,
+			            type:'bar'
+
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});}
+
+
+			 async function chartt(){
+	         await getdata();
+			var ctx = document.getElementById('myyChart').getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+			    type: 'line',
+			    data: {
+			        labels:x,
+			        datasets: [{
+			            label: 'Line ',
+			            data: y,
+			            backgroundColor: 
+			                'rgba(255, 99, 132, 0.2)',
+			            borderColor: 
+			                'rgba(255, 99, 132, 1)',
+			            fill:false,
+			            borderWidth: 1
+			        },{
+			        	 label: 'bar ',
+			            data: y,
+			            backgroundColor: 
+			                'rgba(255, 99, 132, 0.2)',
+			            borderColor: 
+			                'rgba(54, 162, 235, 0.2)',
+			            fill:false,
+			            borderWidth: 1,
+			            type:'bar'
+
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});}
+
+
+
+
+
+
+
+
+ async function getdata(){
+  $(document).ready(function(){
+    $.getJSON("reliance.json",function(data){
+       
+       
+      $.each(data,function(key,value){
+        xlables.push(value.Date);
+
+        ylables.push((Math.round(( Math.random()* (Math.floor(value.High)-Math.floor(value.Low))+ Math.floor(value.Low))*10000))/10000);
+
+        
+   	   
+
+       
+      });
+
+       $.each(data,function(key,value){
+
+      	if(value.Date=="2015-08-14" || value.Date=="2020-08-13" || value.Date=="2016-08-16" || value.Date=="2017-08-16"||value.Date=="2018-08-16" || value.Date=="2019-08-16")
+       {   x.push(value.Date);
+       	  console.log(value.Data);
+
+           y.push((Math.round(( Math.random() * (Math.floor(value.High)-Math.floor(value.Low))+ Math.floor(value.Low))*10000))/10000);
+        }
+        
+   	   
+
+       
+      });
+
+     });});}
+
+</script>
+
+
+
+
+
+
+
+<script >
+  let max=0,high=0,low=0,close=0,ide=0,s=0;
+  $(document).ready(function(){
+    $.getJSON("reliance.json",function(data){
+       
+       
+      $.each(data,function(key,value){
+       
+       
+          if(value.Date=="2020-08-13")
+         //if(value.id==1229)
+          {
+          	high=value.High;
+          	low=value.Low;
+          	open=value.Open;
+
+          }
+          if(value.Date=="2020-08-12")
+          //if(value.id==1229)
+          {
+          	
+          	close=value.Close;
+          	
+          }
+
+          if(value.Date=="2019-08-13")
+          { ide=value.id ;
+          	min=value.Low;
+          	console.log(min);
+          	console.log("hiii");
+          }
+          	
+
+          
+          
+       
+        
+               
+      });
+ 
+
+
+$.each(data,function(key,value){
+
+      if(value.id>=ide){
+          //console.log(value.id);
+          if( value.High>max && value.High != "null")
+          {   
+             max=value.High;
+             
+          }
+          if( value.Low <min)
+          {  if(value.Low == null){
+          	                    var ll=value.Low
+                                    }
+             else
+             { 
+             	min=value.Low;
+             	s=value.id;
+             }
+
+             console.log(min);
+             console.log(s);
+                       
+          }
+          
+          	
+          	
+          }
+
+           });
+         console.log(min);
+  document.getElementById("open").innerHTML=open;
+  document.getElementById("high").innerHTML=high;
+  document.getElementById("low").innerHTML=low;
+  document.getElementById("close").innerHTML=close;
+  document.getElementById("max").innerHTML=max;
+  document.getElementById("min").innerHTML=min;
+   
+          
+            
+    });
+  });
+
+
+   
+</script>
+
+
+
+</body>
+</html>
