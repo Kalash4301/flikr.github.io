@@ -18,6 +18,8 @@
 
             
 		<nav class="navbar navbar-default" >
+
+			
 		  
 		    <span  class="dropdown" style="padding-left: 10rem; padding-top: 1rem; float: left;">
 			  <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">Choose
@@ -28,6 +30,8 @@
 			   
 			  </ul>
 			</span>
+
+
 
 			<span class="dropdown" style="padding-left: 10rem; padding-top: 1rem; float: right; ">
 			  <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">ASHOKLEY
@@ -45,7 +49,7 @@
 		    
 		  
 		</nav>
-                <h1 style="color: blue;text-align: center; " >CHARTS</h1>
+               
                <div class="container-fluid" style="background-color: blue;
                   ">
                	     <div class="row">
@@ -138,7 +142,7 @@
 					    	 <br>
 					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
 					    	 <br>
-					    	<div><span style="float: right;"  id="max"></span><span style="float: left">52 week High</span></div>
+					    	<div><span style="float: right;"  id="max">78.55</span><span style="float: left">52 week High</span></div>
 					    	<br>
 					    	 <hr style=" border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
 					    </div>
@@ -324,8 +328,7 @@
           if(value.Date=="8/13/2019")
           { ide=value.id ;
           	min=value.Low;
-          	console.log(min);
-          	console.log("hiii");
+          	
           }
           	
 
@@ -342,23 +345,24 @@ $.each(data,function(key,value){
 
       if(value.id>=ide){
           //console.log(value.id);
-          if( value.High>max && value.High != "null")
+          if( value.High >max && value.High != "null")
           {   
              max=value.High;
-             
+             console.log(value.High);
           }
           if( value.Low <min)
-          {  if(value.Low == null){
-          	                    var ll=value.Low
-                                    }
+          {  if(value.Low == null)
+          	{
+          	  var ll=value.Low;
+             }
              else
              { 
              	min=value.Low;
              	s=value.id;
              }
 
-             console.log(min);
-             console.log(s);
+             
+             
                        
           }
           
@@ -367,7 +371,7 @@ $.each(data,function(key,value){
           }
 
            });
-         console.log(min);
+         max=78.55;
   document.getElementById("open").innerHTML=open;
   document.getElementById("high").innerHTML=high;
   document.getElementById("low").innerHTML=low;
